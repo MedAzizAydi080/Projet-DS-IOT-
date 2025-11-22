@@ -9,7 +9,7 @@
 ## 📖 Overview
 
 This project implements a secure, bi-directional **Industrial IoT Digital Twin** for a heavy 3-Phase Generator. It was developed for the **IoT & Cloud Computing** course (Fall 2025) to fulfill two key requirements:
-1.  **Technical Implementation:** A complete Edge-to-Cloud data pipeline.
+1.  **Technical Implementation:** A complete    Edge-to-Cloud data pipeline.
 2.  **Comparative Study:** Demonstrating an architecture that bridges Data Visualization (Ubidots) and Edge Management concepts (simulated via Node-RED).
 
 Instead of simple random data, this project uses a **Physics Engine** to simulate thermal inertia, voltage sag, and fluid dynamics. The data is processed by an **Intelligent Edge Gateway (Node-RED)** before being securely transmitted to the **Ubidots Cloud** via **MQTTS (TLS)**.
@@ -25,7 +25,7 @@ Instead of simple random data, this project uses a **Physics Engine** to simulat
 
 ## 🏗 Architecture
 
-The system follows a 3-Tier "Edge-to-Cloud" Architecture:
+The system follows a 3-Tier "Edge-to-Cloud" Architecture :
 
 ```mermaid
 graph LR
