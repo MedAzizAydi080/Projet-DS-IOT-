@@ -33,7 +33,7 @@
         "type": "function",
         "z": "1de10e4c5802697f",
         "name": "Edge Processing",
-        "func": "var data = msg.payload;\n\n// EDGE AI: Complex Sensor Fusion\n// Check multiple conditions to trigger alerts\nif (data.vibration > 0.8) {\n    data.alert = \"CRITICAL VIBRATION\";\n} \nelse if (data.oil_pressure < 2.0 && data.rpm > 500) {\n    data.alert = \"LOW OIL PRESSURE\";\n} \nelse if (data.voltage > 240 || data.voltage < 200) {\n    data.alert = \"VOLTAGE UNSTABLE\";\n} \nelse {\n    data.alert = \"NORMAL\";\n}\n\nmsg.payload = data;\nreturn msg;",
+        "func": "var data = msg.payload;\n\n// EDGE AI: Complex Sensor Fusion\n// Check multiple conditions to trigger alerts\n// 0 = NORMAL\n// 1 = CRITICAL VIBRATION\n// 2 = LOW OIL PRESSURE\n// 3 = VOLTAGE UNSTABLE\n\nif (data.vibration > 0.8) {\n    data.alert = 1;\n} \nelse if (data.oil_pressure < 2.0 && data.rpm > 500) {\n    data.alert = 2;\n} \nelse if (data.voltage > 240 || data.voltage < 200) {\n    data.alert = 3;\n} \nelse {\n    data.alert = 0;\n}\n\nmsg.payload = data;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,

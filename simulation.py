@@ -19,7 +19,7 @@ class HeavyGenerator:
         # --- MOTION ---
         self.rpm = 0.0
         self.target_rpm = 1800.0 # Standard 60Hz Gen Speed
-        self.vibration = 0.02
+        self.vibration = 1.0    
         
         # --- ELECTRICAL ---
         self.voltage_l1 = 220.0
@@ -31,7 +31,7 @@ class HeavyGenerator:
         self.oil_pressure = 0.0 # Bar
         
         # --- STATE ---
-        self.health = 100.0
+        self.health = 10.0 # Percent  
         self.status = "STARTING"
 
     def update(self):
@@ -57,7 +57,7 @@ class HeavyGenerator:
         
         # 5. Random Degradation
         if self.status == "RUNNING" and random.random() > 0.99:
-            self.health -= 0.2
+            self.health = max(0.0, self.health - 0.2)
 
     def emergency_brake(self):
         self.target_rpm = 0
